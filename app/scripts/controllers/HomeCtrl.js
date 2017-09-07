@@ -4,6 +4,7 @@
 
         this.title = "Bloc Chat Application";
         this.roomNamePlaceHolder =  "Enter room name here";
+
         this.Test = ["one", "two", "three"];
         this.Room = Room.all;
         this.newName = "";
