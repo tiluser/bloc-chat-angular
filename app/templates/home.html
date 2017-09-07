@@ -2,6 +2,43 @@
 
 <table>
   <tr ng-repeat="chatroom in home.Room">
-    <td>{{ chatroom.$value }}</td>
+    <td>{{ chatroom.roomName }}</td>
   </tr>
+  <!--
+  <tr ng-repeat="test in home.Test">
+    <td>{{ test }}</td>
+    <td></td>
+</tr>
+-->
 </table>
+
+<div class="container">
+  <h2>Adding a room</h2>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Enter new chatroom name here:
+            <input type ="text"  placeholder="{{ home.roomNamePlaceHolder }}" data-ng-model="home.newName" />
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-ng-click="home.add()">Add</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
