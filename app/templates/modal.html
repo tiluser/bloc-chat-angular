@@ -1,4 +1,4 @@
-<div class="container" ng-app="blocChat">
+<div class="container" ng-controller="ModalCtrl as mdl">
   <h2>Adding a room</h2>
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
@@ -10,16 +10,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">{{ mdl.title }}</h4>
         </div>
         <div class="modal-body">
           <p>
             Enter new chatroom name here:
-            <input type ="text"  placeholder="{{ home.roomNamePlaceHolder }}" data-ng-model="home.newName" />
+            <input type ="text"  placeholder="{{ mdl.roomNamePlaceHolder }}" data-ng-model="mdl.newName" />
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-ng-click="home.add()">Add</button>
+          <button type="button" class="btn btn-default" data-ng-click="mdl.add()">Add</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

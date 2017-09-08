@@ -1,6 +1,6 @@
 (function () {
     function ModalCtrl($scope, Room) {
-        $scope.roomNamePlaceHolder =  "Enter room name here";
+        this.roomNamePlaceHolder =  "Enter room name here";
         this.title = "Create new room";
         this.label = "Enter room name";
         this.Room = Room.all;
@@ -15,5 +15,5 @@
     }
     angular
         .module('blocChat')
-        .controller('ModalCtrl', ['ui.bootstrap','Room', ModalCtrl]);
+        .controller('ModalCtrl', ['$scope', 'Room', ModalCtrl]);
 })();
