@@ -1,8 +1,13 @@
+<div class="col-sm-3">
 <br />
 <ng-include src="'/templates/modal.html'"></ng-include>
 <br />
 <div class="list-group">
-  <a class="list-group-item"  style="border:none" ng-repeat="chatroom in home.Room" href="/detail/{{chatroom.$id}}">
+  <a class="list-group-item"  style="border:none" ng-repeat="chatroom in home.Room" ng-click="home.currentChatRoom = chatroom">
     {{ chatroom.roomName }}
   </a>
+</div>
+</div>
+<div class="col-sm-9">
+  <ng-include src="'/templates/roominfo.html'"></ng-include>
 </div>

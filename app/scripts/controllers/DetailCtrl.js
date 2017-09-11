@@ -11,6 +11,7 @@
       // $scope.pt.roomName = $route.current.params.roomName;
           console.log($stateParams);
           console.log("Outputted state parameters");
+          this.id = $scope.id;
     }
     angular
         .module('blocChat')
