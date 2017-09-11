@@ -1,15 +1,8 @@
-<h1>Home Page</h1>
-
-<table>
-  <tr ng-repeat="chatroom in home.Room">
-    <td>{{ chatroom.roomName }}</td>
-  </tr>
-  <!--
-  <tr ng-repeat="test in home.Test">
-    <td>{{ test }}</td>
-    <td></td>
-</tr>
--->
-</table>
-
+<br />
 <ng-include src="'/templates/modal.html'"></ng-include>
+<br />
+<div class="list-group">
+  <a class="list-group-item"  style="border:none" ng-repeat="chatroom in home.Room" href="/detail/{{chatroom.$id}}">
+    {{ chatroom.roomName }}
+  </a>
+</div>

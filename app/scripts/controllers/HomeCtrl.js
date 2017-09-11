@@ -5,7 +5,6 @@
         this.Test = ["one", "two", "three"];
         this.Room = Room.all;
     }
-
     angular
         .module('blocChat')
         .controller('HomeCtrl', ['Room', HomeCtrl]);

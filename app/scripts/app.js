@@ -45,6 +45,10 @@
                   'detail': {
                       templateUrl: '/templates/roominfo.html',
                       controller: 'HomeCtrl as home'
+                  },
+                  'detail/:$id': {
+                      templateUrl: '/templates/roominfo.html',
+                      controller: 'DetailCtrl as detail'
                   }
                 }
             });
