@@ -10,7 +10,7 @@
         this.add = function () {
         //    alert(this.newName);
             Room.newName = this.newName;
-            Room.add4();
+            Room.add();
        };
     }
     angular

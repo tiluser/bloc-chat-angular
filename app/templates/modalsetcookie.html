@@ -1,0 +1,32 @@
+<!-- Modal content-->
+<!--
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">You need to enter a username</h4>
+  </div>
+  <div class="modal-body">
+    <p>
+      Enter chatroom username here:
+      <input type ="text"  placeholder="username" data-ng-model="userName" />
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="ok()">Enter</button>
+  </div>
+</div>
+-->
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">You need to enter a username</h4>
+</div>
+<div class="modal-body">
+  <p>
+    Enter chatroom username here:
+    <input type ="text"  placeholder="username" ng-model="$rootScope.userName" />
+  </p>
+</div>
+
+<div class="modal-footer">
+     <button class="btn btn-primary" type="button" ng-click="assign($rootScope.userName)">Assign</button>
+</div>
