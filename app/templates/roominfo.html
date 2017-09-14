@@ -4,6 +4,7 @@
   ID: {{ home.currentChatRoom.$id }}
   <BR/>
 </div>
+
 <div class="jumbotron" ng-hide="pt">
   Room name: {{ home.currentChatRoom.roomName }}
   <div class="list-group">
@@ -11,4 +12,34 @@
       {{ message }}
     </a>
   </div>
+</div>
+
+<div class="jumbotron">
+    <button type="button" class="btn btn-default" data-ng-click="home.getByRoomId(home.currentChatRoom.$id)" ng-model="test">Room Id Test</button>
+</div>
+
+<div class="jumbotron">
+    <button type="button" class="btn btn-default" data-ng-click="home.send('me me me me me')" ng-model="test">Send a message</button>
+</div>
+
+<div class="jumbotron" ng-hide="pt2">
+  Room name: {{ home.currentChatRoom.roomName }}
+  <div class="list-group">
+    <a class="list-group-item" style="border:none" ng-repeat="message in home.messages" ng-if="message.$id === home.currentChatRoom.$id">
+        {{ message.messages }}
+    </a>
+  </div>
+</div>
+
+<div class="jumbotron" ng-hide="pt2">
+  Room name: {{ home.currentChatRoom.roomName }}
+  <div class="list-group">
+    <a class="list-group-item" style="border:none" ng-repeat="msg in home.myMessages">
+        {{ msg }}
+    </a>
+  </div>
+</div>
+
+<div class="jumbotron" ng-hide="pt2">
+  Room name: {{ home.myMessages }}
 </div>
