@@ -1,80 +1,53 @@
-(function () {
-    function Message($firebaseArray, $window, $rootScope) {
-        var Message = {};
-        var ref = firebase.database().ref().child("rooms");
-        var messages = $firebaseArray(ref);
-/*
-        messages.$loaded()
+(function() {
+  function Message($firebaseArray, $rootScope, $window) {
+    var Message = {};
+    var ref = firebase.database().ref().child("messages");
+    var messages = $firebaseArray(ref);
+    Message.currRoomId = null;
+    Message.roomMessages = [];
+
+    Message.all = messages;
+
+    Message.getByRoomIdTest = function (roomId) {
+      Message.roomMessages = [];
+      angular.forEach(messages, function (message) {
+          if (typeof message !== 'undefined' && message.roomId === roomId) {
+              Message.roomMessages.push(message.body);
+          }
+      });
+      // alert(Message.roomMessages);
+      return Message.roomMessages;
+    };
+
+    Message.getByRoomId = function(roomId) {
+        // .. logic for filtering messages
+        var returnedMessages = [];
+        returnedMessages = messages.$loaded()
             .then(function() {
+                var allMessages = [];
                 angular.forEach(messages, function (message) {
-                    console.log(message);
+                    if (typeof message !== 'undefined' && message.roomId === roomId) {
+                        allMessages.push(message.body);
+                        Message.roomMessages.push(message.body);
+                        alert(allMessages);
+                        return allMessages;
+                    }
                 })
             });
-*/
-        Message.all = messages;
+        return returnedMessages;
+    };
 
-        Message.getByRoomIdTest = function (roomId) {
-            var x = ["zztop", "tulip", "train wreck"];
-            alert(x);
-            return x;
-        };
+    Message.send = function(newMessage) {
+        // Send method logic
+        alert("Message " + newMessage + " sent.")
+      //  messages.$add({ roomId: Message.currRoomId, body: newMessage, userName: $rootScope.userName });
+        messages.$add({ body: newMessage, userName: $rootScope.userName, roomId: Message.currRoomId  })
+    };
 
-        Message.getByRoomId = function (roomId) {
-            var allMessages = [];
-            messages.$loaded().then(function() {
+    return Message;
+  }
 
-                  angular.forEach(messages, function (message) {
-                      if (typeof message.messages !== 'undefined' && message.$id === roomId) {
-                          // alert(message.$id);
-                          var msgSet = message.messages;
-                          for (var msg in msgSet) {
-                                 allMessages.push(msgSet[msg]);
-                                // alert(msgSet[msg]);
-                          }
-                          alert(allMessages);
-                          return allMessages;
-                      }
-                  })
-              });
-              alert(allMessages);
-        };
-
-        Message.send2 = function (roomId) {
-          var returnedMessages = [];
-          returnedMessages = messages.$loaded()
-              .then(function() {
-                  var allMessages = [];
-                  angular.forEach(messages, function (message) {
-                      if (typeof message.messages !== 'undefined' && message.$id === roomId) {
-                          // alert(message.$id);
-                          var msgSet = message.messages;
-                          for (var msg in msgSet) {
-                                 allMessages.push(msgSet[msg]);
-                                // alert(msgSet[msg]);
-                          }
-                          alert(allMessages);
-                          return allMessages;
-                      }
-                  })
-              });
-              return returnedMessages;
-        };
-
-        Message.send = function (newMessage) {
-            // Send method logic
-            var messagesToSend = [];
-            messagesToSend.push(newMessage);
-            alert("Message sent is " + newMessage);
-
-            messages.$add({ messages: messagesToSend });
-            alert();
-            return 0;
-        };
-
-        return Message;
-    }
-
-    angular
-        .module('blocChat')
-        .factory('Message', ['$firebaseArray', '$window', '$rootScope', Message]);
+  angular
+    .module('blocChat')
+    .factory('Message', ['$firebaseArray','$rootScope', '$window', Message]);
 })();

@@ -1,6 +1,6 @@
 
   (function () {
-        function config($stateProvider, $locationProvider,$urlRouterProvider) {
+        function config($stateProvider, $locationProvider,$urlRouterProvider, ) {
              $locationProvider
                  .html5Mode({
                      enabled: true,

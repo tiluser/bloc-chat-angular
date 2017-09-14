@@ -7,16 +7,22 @@
         this.currRoomId = null;
         this.Room = Room.all;
         this.messages = Message.all;
-        this.myMessages = {};
+        this.myMessages = [];
+        that = this;
 
-        //this.message -
         this.getByRoomId = function (roomId) {
-      //      this.myMessage = Message.getByRoomId(roomId);
-            this.myMessages = Message.getByRoomId(roomId);
-            alert(this.myMessages);
+            that.myMessages = Message.getByRoomIdTest(roomId);
+            alert(Message.roomMessages);
         };
+
         this.send = function (newMessage) {
-            retVal = Message.send(newMessage);
+            if (this.currentChatRoom.hasOwnProperty('$id') === false) {
+                $window.alert("Error: Please select a chatroom first before posting a message");
+            }
+            else {
+                Message.currRoomId = this.currentChatRoom.$id;
+                Message.send(newMessage);
+            }
         };
 
     }
