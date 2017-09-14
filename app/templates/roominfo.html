@@ -2,28 +2,22 @@
 
 <div class="jumbotron">
   ID: {{ home.currentChatRoom.$id }}
-  <BR/>
-</div>
-
-<div class="jumbotron" ng-hide="pt">
-  Room name: {{ home.currentChatRoom.roomName }}
-  <div class="list-group">
-  <!--  <a class="list-group-item" style="border:none" ng-repeat="message in home.currentChatRoom.messages"> -->
-    <a class="list-group-item" style="border:none" ng-repeat="message in home.myMessages.body">
-      {{ message }}
-    </a>
-  </div>
-</div>
-
-<div class="jumbotron">
-    <button type="button" class="btn btn-default" data-ng-click="home.getByRoomId(home.currentChatRoom.$id)" ng-model="test">Get messages</button>
+  <br />
+    Room name: {{ home.currentChatRoom.roomName }}
+  <br/>
 </div>
 
 <div class="jumbotron">
    <p><input type="text" ng-model="message"></p>
-    <button type="button" class="btn btn-default" data-ng-click="home.send(message); home.getByRoomId(home.currentChatRoom.$id)">Send a message</button>
+    <button type="button" class="btn btn-default" ng-click="home.send(message); home.getByRoomId(home.currentChatRoom.$id)">Send a message</button>
 </div>
 
+
+<div class="jumbotron">
+    <button type="button" class="btn btn-default" data-ng-click="home.getByRoomId(home.currentChatRoom.$id)">Get messages</button>
+</div>
+
+<!--
 <div class="jumbotron" ng-hide="pt2">
   Room name: {{ home.currentChatRoom.roomName }}
   <div class="list-group">
@@ -32,11 +26,12 @@
     </a>
   </div>
 </div>
+-->
 
 <div class="jumbotron" ng-hide="pt2">
-  Room name: {{ home.currentChatRoom.roomName }}
-  <div class="list-group">
-    <a class="list-group-item" style="border:none" ng-repeat="msg in home.myMessages">
+  Room name: {{ home.currentChatRoom.roomame }}
+  <div class="list-group" id="test1">
+    <a class="list-group-item" style="border:none" ng-repeat="msg in myMessages">
         {{ msg }}
     </a>
   </div>

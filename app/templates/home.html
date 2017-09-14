@@ -3,7 +3,7 @@
 <ng-include src="'/templates/modal.html'"></ng-include>
 <br />
 <div class="list-group">
-  <a class="list-group-item"  style="border:none" ng-repeat="chatroom in home.Room" ng-click="home.currentChatRoom = chatroom">
+  <a class="list-group-item" style="border:none" ng-repeat="chatroom in home.Room" ng-click="home.currentChatRoom = chatroom; home.getByRoomId(home.currentChatRoom.$id)">
     {{ chatroom.roomName }}
   </a>
 </div>

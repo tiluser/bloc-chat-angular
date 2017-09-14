@@ -1,18 +1,18 @@
 (function () {
 
-    function HomeCtrl(Room, Message, $scope, $window) {
+    function HomeCtrl(Room, Message, $scope, $rootScope, $window) {
         this.title = "Bloc Chat Application";
         this.Test = ["onex", "twox", "three"];
         this.currentChatRoom = {};
         this.currRoomId = null;
         this.Room = Room.all;
         this.messages = Message.all;
-        this.myMessages = [];
+        $rootScope.myMessages = [];
         that = this;
 
         this.getByRoomId = function (roomId) {
-            that.myMessages = Message.getByRoomIdTest(roomId);
-            alert(Message.roomMessages);
+            $rootScope.myMessages.length = 0;
+            angular.extend($rootScope.myMessages, Message.getByRoomIdTest(roomId));
         };
 
         this.send = function (newMessage) {
@@ -28,6 +28,6 @@
     }
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room','Message', '$scope', '$window', HomeCtrl]);
+        .controller('HomeCtrl', ['Room','Message', '$scope', '$rootScope', '$window', HomeCtrl]);
 
 })();

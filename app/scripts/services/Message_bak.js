@@ -64,7 +64,7 @@
             // Send method logic
             var messagesToSend = [];
             messagesToSend.push(newMessage);
-            alert("Message sent is " + newMessage);
+            // alert("Message sent is " + newMessage);
 
             messages.$add({ messages: messagesToSend });
             alert();
