@@ -22,6 +22,7 @@
             else {
                 Message.currRoomId = this.currentChatRoom.$id;
                 Message.send(newMessage);
+                that.getByRoomId(Message.currRoomId);
             }
         };
 

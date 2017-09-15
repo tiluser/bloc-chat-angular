@@ -39,9 +39,7 @@
 
     Message.send = function(newMessage) {
         // Send method logic
-        // alert("Message " + newMessage + " sent.")
-      //  messages.$add({ roomId: Message.currRoomId, body: newMessage, userName: $rootScope.userName });
-        messages.$add({ body: newMessage, userName: $rootScope.userName, roomId: Message.currRoomId  })
+        messages.$add({ body: newMessage, userName: $rootScope.userName, roomId: Message.currRoomId  });
     };
 
     return Message;
